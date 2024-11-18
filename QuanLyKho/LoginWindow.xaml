@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:QuanLyKho"
         xmlns:uc="clr-namespace:QuanLyKho.Views.UserControls"
         mc:Ignorable="d"
-        Name="loginWindow"
+        x:Name="window"
         Title="LoginWindow"
         Height="300"
         Width="400"
@@ -27,7 +27,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}" />
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=window}" />
         </Grid>
         <materialDesign:Card Grid.Row="1"
                              Width="330"
