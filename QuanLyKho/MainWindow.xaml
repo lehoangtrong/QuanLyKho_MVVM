@@ -47,7 +47,31 @@
             </Grid.RowDefinitions>
             <!-- Menu -->
             <Grid Grid.Row="0">
+                <StackPanel HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="Transparent"
+                            Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Margin"
+                                    Value="2 2 2 4" />
+                            <Setter Property="Width"
+                                    Value="50" />
+                            <Setter Property="Height"
+                                    Value="50" />
+                        </Style>
+                    </StackPanel.Resources>
 
+                    <Button ToolTip="Nhập kho"
+                            Style="{StaticResource MaterialDesignRaisedButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Import" />
+                            <TextBlock Grid.Row="1"
+                                       Text="Nhập kho" />
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
             </Grid>
 
             <!-- Main -->
