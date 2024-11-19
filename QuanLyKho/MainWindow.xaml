@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Name="mainWindow"
         Title="Phần mềm quản lý kho"
-        Height="450"
+        Height="600"
         Width="869"
         WindowStyle="None"
         ResizeMode="NoResize"
@@ -337,17 +337,20 @@
                         </Grid>
 
                         <Grid Grid.Row="2">
-
-                            <ListView>
-                                <ListView.View>
-                                    <GridView>
-                                        <GridViewColumn Header="STT"></GridViewColumn>
-                                        <GridViewColumn Header="Tên Vật Tư"></GridViewColumn>
-                                        <GridViewColumn Header="Số lượng tồn"></GridViewColumn>
-
-                                    </GridView>
-                                </ListView.View>
-                            </ListView>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <ListView ItemsSource="{Binding TonKhoList}">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="STT"
+                                                            DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                                            <GridViewColumn Header="Tên Vật Tư"
+                                                            DisplayMemberBinding="{Binding Object.DisplayName}"></GridViewColumn>
+                                            <GridViewColumn Header="Số lượng tồn"
+                                                            DisplayMemberBinding="{Binding Count}"></GridViewColumn>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            </ScrollViewer>
                         </Grid>
 
                     </Grid>

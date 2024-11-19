@@ -43,7 +43,7 @@
                 <Grid>
                     <TextBox materialDesign:HintAssist.Hint="Tên đơn vị đo"
                              Margin="15"
-                             Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              Style="{StaticResource MaterialDesignTextBox}" />
                 </Grid>
             </materialDesign:Card>
@@ -70,8 +70,8 @@
                                  Margin="5"
                                  VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView ItemsSource="{Binding List}"
-                              SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                    <ListView ItemsSource="{Binding UnitList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
                         <ListView.View>
 
                             <GridView>
@@ -81,7 +81,7 @@
 
                                 </GridViewColumn>
                                 <GridViewColumn Header="Tên"
-                                                DisplayMemberBinding="{Binding Name}">
+                                                DisplayMemberBinding="{Binding DisplayName}">
 
                                 </GridViewColumn>
                             </GridView>

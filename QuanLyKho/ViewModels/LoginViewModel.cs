@@ -43,31 +43,22 @@ namespace QuanLyKho.ViewModels
         void Login(Window p)
         {
             if (p == null) return;
-
-            if (UserName != "admin" || Password != "admin")
-            {
-                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
-                return;
-            }
-
             QuanLyKhoKteamContext quanLyKho = new QuanLyKhoKteamContext();
-            string passwordEndcode = Md5Encode(Base64Encode(Password));
-            var userCount = quanLyKho.Users.Where(x => x.UserName == UserName && x.Password == passwordEndcode).Count();
-            if (userCount == 0)
+            string passwordEndcode = Md5Encode(Base64Encode(Password)).ToLower();
+            var user = quanLyKho.Users.FirstOrDefault(x => x.UserName == UserName);
+            if (user == null)
             {
                 MessageBox.Show("Tài khoản không tồn tại");
                 return;
             }
+            if (user.Password != passwordEndcode)
+            {
+                MessageBox.Show("Sai mật khẩu");
+                return;
+            }
 
-            if (userCount == 1)
-            {
-                IsLogin = true;
-                p.Close();
-            }
-            else
-            {
-                MessageBox.Show("Có lỗi xảy ra");
-            }
+            IsLogin = true;
+            p.Close();
         }
 
         // string to base64 encoding
