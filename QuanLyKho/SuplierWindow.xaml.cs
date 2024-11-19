@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyKho.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace QuanLyKho
     /// </summary>
     public partial class SuplierWindow : Window
     {
+        public SuplierViewModel SuplierViewModel { get; set; }
         public SuplierWindow()
         {
             InitializeComponent();
+            this.DataContext = SuplierViewModel = new SuplierViewModel();
         }
     }
 }

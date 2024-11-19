@@ -94,7 +94,7 @@
                                  VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListView ItemsSource="{Binding List}"
-                              SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                              SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Id"
@@ -123,7 +123,6 @@
                                 </GridViewColumn>
                                 <GridViewColumn Header="Ngày hợp tác"
                                                 DisplayMemberBinding="{Binding ContractDate}">
-
                                 </GridViewColumn>
                             </GridView>
                         </ListView.View>
